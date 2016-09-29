@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<title>Hangman!</title>
+		<script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+		<script type="text/processing" data-processing-target="mycanvas">
+			//JAVASCRIPT STARTS HERE
+
+			//set up the hidden word as a list. The elements of this list are single-letter strings. 
+			//the indices of this list are 0, 1, 2, 3,  . . . . [hiddenWord.length -1]
+			var hiddenWord = ["b", "u", "f", "f", "a", "l", "o"]; //the double quotes matter here!
+			
+			//set up the guessed word as an empty list. 
+			var guessedWord = [];
+
+			//fill the guessedWord list up with one "-" for every letter in the hidden word. 
+			for( var i = 0; i <  hiddenWord.length; i++){
+				guessedWord.push('-');
+			}
+
+   			
+			void setup()
+			{
+			  size(1420,780);
+			  background(0,39,105);
+			  println("Your guesses so far are: " + str(guessedWord));
+			  println("click in the blue and press a key to guess!");
+			  textSize(50);
+			  text("Let's play Hangman!", 200, 200);
+			}
+
+			//this function is only guaranteed to work if you call it inside of the keyPressed() function. 
+			//the processing.js API makes sure that key has the value of the most-recently pressed key.
+			//you don't need to do anything with this function because it's already defined here and called in keyPressed(). 
+			void getLetter(){
+				return str(key);
+			}
+			
+			//this function runs the game, but it only happens when the user presses a key. The repetition in this game
+			//doesn't depend on a loop in our code, just on the user repeatedly pressing a key. 
+			void keyPressed(){
+				var letter = getLetter();
+				var numWrong = 0;
+				println("You entered the letter: " + letter);
+				var gotWord = false;
+				for (var i = 0; i < hiddenWord.length; i++){
+					if(letter.equals(hiddenWord[i])){
+						guessedWord[i] = letter;
+						println(guessedWord);
+						gotWord = true;
+						textSize(40);
+						text(guessedWord, 1000, 500);
+					}
+				}
+				if(gotWord === false){
+					println("Incorrect guess! Try again?");
+					numWrong = numWrong + 1;
+				}
+				var winGame = false;
+				for (var i = 0; i < hiddenWord.length; i++){
+					if(guessedWord[i] === hiddenWord[i]){
+						winGame = true;
+					}else{
+						winGame = false;
+					}
+				}
+				if(winGame === true){
+					println("WINNER!");
+				}
+				/*
+				Step 0: write a loop to print out each letter of our hidden word one line at a time. 
+				Step 1: for each of our hiddenWord, ask if it matches our letter. Note that if I have one variable
+				called testLetter1 and another variable called testLetter2, the syntax to see if they are the same is testLetter1.equals(testLetter2); 						also use println("yes at index" + i) when it matches and check to see if the value of i is what you expect
+				Step 2: now when a guess is correct, also update our guessedWord (which starts with all dashes) to have the correctly guessed letter
+					in the right place. To test this, print out the guessedWord. 
+				Step 3: You have the key element of hangman down! Now write code that lets the user know when they guessed incorrectly. Make sure that 
+					the rest of the program still works even if there is more then one of the same letter!
+				Step 4(extra): write code to test if we're done with the game
+				Step 5(extra): move the code you wrote in Step 5 into a brand new function, and call the function. 
+				*/ 
+				
+			}
+			   
+			
+
+
+			//JAVASCRIPT ENDS HERE
+		</script>
+	</head>
+	<body>
+		<canvas id="mycanvas"></canvas>
+	</body>
+</html>

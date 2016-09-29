@@ -1,0 +1,53 @@
+<! Annie's Template ->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>What do you need to do?</title> 
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+		<script>
+			//All of our JS/JQuery is inside <script> tags
+			var addTask = function(){
+				var newTask = $('#task').attr('value');
+				$('#myTasks').append("<li>" + newTask + "</li>");
+				$('#task').attr('value', "");
+			}
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="one">
+			<div data-role="header">
+
+			</div>
+			<div data-role="content">
+				<p>TO-DO LIST</p>
+				<div data-role="listview" data-inset="true" data-inline="true"><ol id="myTasks"></ol>
+				</div>
+				<a href="#two" data-role="button" id="add" data-inline="true">Add a new task!</a>
+			</div>
+			<div data-role="footer">
+
+			</div>
+		</div>
+		
+		<div data-role="page" id="two">
+			<div data-role="header">
+
+			</div>
+			<div data-role="content">
+				<form>
+					 <label for="text-1">Add your task!</label>
+					 <input type="text" id="task" value="">
+				</form>
+				<a href="#one" data-role="button" id="submit" data-inline="true" onclick="addTask()">Done</a>
+				<a href="#one" data-role="button" id="cancel" data-inline="true">Cancel</a>
+			</div>
+			<div data-role="footer">
+
+			</div>			
+		</div>
+	</body>
+</html>

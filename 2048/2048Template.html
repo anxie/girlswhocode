@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title> 2048 by OUR LAST NAMES! </title>
+		
+<!------ the href needs to match the css file you are using, and that file must be in the same folder as this file. ---->
+		<link rel="stylesheet" type="text/css" href="2048styles.css" />
+
+<!------ the href needs to match the javascript file you are using, and that file must be in the same folder as this file. ---->		
+		<script type="text/javascript" src="2048script.js"> </script>
+	</head>
+
+<!---- The body contains the grid. The html gives each grid-cell an id. The Javascript above accesses the cell with that id.  Using the id, the 
+javascript can change the number (the innerHTML) or the background color. -->
+	<body onload = "showBoard()" onkeydown = "arrowPress(event)">
+		<div class="game-container">
+			<div class="grid-container">
+		        <div class="grid-row">
+		          <div class="grid-cell" id = "r0c0"></div>
+		          <div class="grid-cell" id = "r0c1"></div>
+		          <div class="grid-cell" id = "r0c2"></div>
+		          <div class="grid-cell" id = "r0c3"></div>
+		        </div>
+		        <div class="grid-row">
+		          <div class="grid-cell" id = "r1c0"></div>
+		          <div class="grid-cell" id = "r1c1"></div>
+		          <div class="grid-cell" id = "r1c2"></div>
+		          <div class="grid-cell" id = "r1c3"></div>
+		        </div>
+		        <div class="grid-row">
+		          <div class="grid-cell" id = "r2c0"></div>
+		          <div class="grid-cell" id = "r2c1"></div>
+		          <div class="grid-cell" id = "r2c2"></div>
+		          <div class="grid-cell" id = "r2c3"></div>
+		        </div>
+		        <div class="grid-row">
+		          <div class="grid-cell" id = "r3c0"></div>
+		          <div class="grid-cell" id = "r3c1"></div>
+		          <div class="grid-cell" id = "r3c2"></div>
+		          <div class="grid-cell" id = "r3c3"></div>
+		        </div>
+	      	</div>
+	     </div>
+	</body>
+</html>

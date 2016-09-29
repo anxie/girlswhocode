@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>GWC Graphics and Animation Week!</title>
+		<script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+		<script type="text/processing" data-processing-target="mycanvas">
+			//JAVASCRIPT STARTS HERE
+			void setup(){
+			  size(1420,780);
+			  background(0,39,105);
+			}
+			
+			var w = 80;
+			var h = 40;
+			var numFish = 10;
+			var fishX = [];
+			var fishY = [];
+			var speedX = [];
+			var speedY = [];
+			var r = [];
+			var g = [];
+			var b = [];
+			
+			for(var i = 0; i < numFish; i++){
+				r.push(random(0,255));
+				g.push(random(0,255));
+				b.push(random(0,255));
+				
+				fishX.push(random(100,1000));
+				fishY.push(random(100,700));
+				
+				speedX.push(random(1,5));
+				speedY.push(random(-2, 2));
+			}
+
+			void drawFish(x, y, w, h, r, g, b){
+				noStroke();
+				fill(r, g, b);
+				ellipse(x, y, w, h);
+				triangle(x - w/2, y, x - w/2 - 30, y + h/2, x - w/2 - 30, y - h/2);
+			}
+			
+			void moveFish(speedX, speedY){
+				for(i=0; i< numFish; i++){
+					fishX[i] = fishX[i] + speedX[i];
+					fishY[i] = fishY[i] + speedY[i];
+					if (fishX[i] > 1420){//if fish leaves screen on the right, move fish back to the left
+						fishX[i] = 0;
+					}
+					if (fishY[i] < 0){//if fish leaves screen at the top, move fish to bottom
+						fishY[i] = 780;
+					}
+					if (fishY[i] > 780){//if fish leaves screen at the bottom, move fish to top
+						fishY[i] = 0;
+					}
+				}
+			}
+			
+			void manyFish(){
+				background(0,39,105);
+				for(i=0;i< numFish; i++){
+					drawFish(fishX[i], fishY[i], w, h, r[i], g[i], b[i]);
+				}
+			}
+			
+			void draw(){
+				manyFish();
+				moveFish(speedX, speedY);
+			}
+			//JAVASCRIPT ENDS HERE
+		</script>
+	</head>
+	<body>
+		<canvas id="mycanvas"></canvas>
+	</body>
+</html>
