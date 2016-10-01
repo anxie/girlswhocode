@@ -5,23 +5,23 @@
 			  background: #faf8ef;
 			  color: #ffffff;
 			  font-family: "Helvetica Neue", Arial, sans-serif;
-			  font-size: 36px; 
+			  font-size: 36px;
 			  font-weight: bolder;
- 			  
+
 			}
 
 			.grid-container {
 			  position: absolute;
-			  z-index: 1; 
+			  z-index: 1;
 			}
 
 			.grid-row {
-			  margin-bottom: 15px; 
+			  margin-bottom: 15px;
 			}
 
   			.grid-row:last-child {
-    			margin-bottom: 0; 
-			}	
+    			margin-bottom: 0;
+			}
 
 			.grid-row:after {
 				content: "";
@@ -37,11 +37,11 @@
 			  border-radius: 3px;
 			  text-align: center;
 			  vertical-align:middle;
-			  background: rgba(238, 228, 218, 0.35); 
+			  background: rgba(238, 228, 218, 0.35);
 			}
 
 			.grid-cell:last-child {
-			    margin-right: 0; 
+			    margin-right: 0;
 			}
 
 			.game-container {
@@ -55,6 +55,5 @@
 				  height: 500px;
 				  -webkit-box-sizing: border-box;
 				  -moz-box-sizing: border-box;
-				  box-sizing: border-box; 
+				  box-sizing: border-box;
 			}
-		

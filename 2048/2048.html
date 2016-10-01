@@ -1,15 +1,15 @@
 <html>
 	<head>
-		<title> 2048 by OUR LAST NAMES! </title>
-		
+		<title> 2048 </title>
+
 <!------ the href needs to match the css file you are using, and that file must be in the same folder as this file. ---->
 		<link rel="stylesheet" type="text/css" href="2048styles.css" />
 
-<!------ the href needs to match the javascript file you are using, and that file must be in the same folder as this file. ---->		
+<!------ the href needs to match the javascript file you are using, and that file must be in the same folder as this file. ---->
 		<script type="text/javascript" src="2048script.js"> </script>
 	</head>
 
-<!---- The body contains the grid. The html gives each grid-cell an id. The Javascript above accesses the cell with that id.  Using the id, the 
+<!---- The body contains the grid. The html gives each grid-cell an id. The Javascript above accesses the cell with that id.  Using the id, the
 javascript can change the number (the innerHTML) or the background color. -->
 	<body onload = "showBoard()" onkeydown = "arrowPress(event)">
 		<div class="game-container">
