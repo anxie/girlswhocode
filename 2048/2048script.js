@@ -16,10 +16,7 @@ var DOWN = 40;
 
 //board as a 2D array with dummy values. This 2D array is the MODEL that remembers
 //what are gameboard (grid) contains. In the end it will start with all zeros.
-var board = [["","","",""],
-			 			 ["","","",""],
-             ["","","",""],
-             ["","","",""]];
+var board = [["","","",""], ["","","",""], ["","","",""], ["","","",""]];
 
 
 /*Sample testboard: this has numbers hard-coded to test whether the UP arrow can handle 2s:
